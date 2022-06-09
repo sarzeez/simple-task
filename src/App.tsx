@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -6,9 +5,6 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import request from "./services/api";
-
-import { authCredentials } from "./services/authCredentials";
 import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 

@@ -1,9 +1,10 @@
 import { Table, Input, Alert } from "antd";
 
+import { BoardProps } from "../../types/boardTypes";
 import "./board.css";
 const { Search } = Input;
 
-const Board = (props: any) => {
+const Board = (props: BoardProps) => {
   const {
     loading,
     getListTable,
@@ -13,13 +14,23 @@ const Board = (props: any) => {
     onChangeSearch,
   } = props;
   const { rows } = getListTable;
-  const data = rows.map((item: any, index: number) => ({
-    key: index,
-    id: item.id,
-    name: item.name,
-    barcode: item.barcode,
-    lastUpdateTime: item.lastUpdateTime,
-  }));
+  const data = rows.map(
+    (
+      item: {
+        id: number;
+        name: string;
+        barcode: number;
+        lastUpdateTime: number;
+      },
+      index: number
+    ) => ({
+      key: index,
+      id: item.id,
+      name: item.name,
+      barcode: item.barcode,
+      lastUpdateTime: item.lastUpdateTime,
+    })
+  );
 
   const columns = [
     {

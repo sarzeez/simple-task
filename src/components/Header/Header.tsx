@@ -4,7 +4,13 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 
 import "./header.css";
 
-const CustomHeader = ({ state, toggle }: any) => {
+const CustomHeader = ({
+  state,
+  toggle,
+}: {
+  state: { collapsed: boolean };
+  toggle: () => void;
+}) => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();

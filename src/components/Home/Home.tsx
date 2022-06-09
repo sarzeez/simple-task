@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout, Menu } from "antd";
 import {
   UserOutlined,
@@ -62,7 +62,7 @@ const Home = () => {
 
   const onSearch = () => {
     setIsSearched(true);
-    const newData = getListTable.rows.filter((item: any) =>
+    const newData = getListTable.rows.filter((item: { name: string }) =>
       item?.name?.toLowerCase()?.includes(searchValue)
     );
     setFilteredListTable({
@@ -71,7 +71,7 @@ const Home = () => {
     });
   };
 
-  const onChangeSearch = (e: any) => {
+  const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchValue(value);
     if (value === "") {
